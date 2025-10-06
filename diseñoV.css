@@ -1,0 +1,429 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse 90% 50% at 50% 100%, 
+    rgba(0, 20, 60, 0.7),  /* azul oscuro brillante desde abajo */
+    transparent 70%
+  ),
+  #000000; /* fondo base negro */
+ }
+.contenedor{
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center; /* hace que el texto que esta al lado del icono quede bien ordenado*/
+    gap: 30px;
+    height: 100vh;
+
+    /*para hacer el fecto de aparición con scroll*/
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 2s ease-out forwards;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+.perfil{
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left:40px;
+    flex-shrink: 0;         /* El icono no se encoge */
+    filter: drop-shadow(0 10px 20px rgba(13, 82, 230, 0.712));
+    transition: trasnform 0.3s ease, box-shadow 0.3s ease;
+}
+.perfil:hover{
+  transform: translateY(-10px); /* se levanta 10px hacia arriba */
+  box-shadow:  0 10px 20px rgba(255, 255, 255, 0.4); /* sombra más fuerte */
+}
+
+.perfil img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+header{
+    position: fixed;         /* Hace que el header se quede fijo */
+    top: 0;                  /* Lo posiciona en la parte superior */
+    left: 0;
+    right: 0;
+    z-index: 1000;           /* Asegura que esté por encima de otros elementos */
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    box-shadow: 0 2px 40px rgb(2, 39, 112);
+    height: 80px;
+}
+nav{
+    display: flex;
+    font-size: 20px;
+    gap: 50px;
+    align-items: center;
+    margin-left: auto;
+}
+nav a{
+    text-decoration: none;
+    color: beige;    
+    padding: 0 15px;
+    margin-right: 20px;
+    font-family:'Times New Roman', Times, serif;
+    position: relative;    /* El <a> sirve de referencia para el ::after */    
+    text-shadow:
+    8px 8px 10px #3a0ca7,
+    0 0 20px #3a0ca7,
+    0 0 20px #3a0ca7,
+    0 0 20px #3a0ca7;
+    transition: .5s ease;
+    
+}
+nav a:hover{
+    color:rgb(13, 71, 187);
+}
+nav a::after{
+    content: '';               /* Crea el pseudo-elemento */
+    position: absolute;        /* Se posiciona relativo al <a> */
+    left: 0;                   /* Arranca desde la izquierda */
+    bottom: -5px;              /* Lo colocamos debajo del texto */
+    width: 0;                  /* Empieza invisible (sin ancho) */
+    height: 3px;               /* Grosor de la línea */
+    background-color: rgb(32, 107, 255);
+    transition: width 0.3s ease; /* Animación del ancho */
+}
+nav a:hover::after{
+    width: 100%;
+}
+
+.Portafolio{
+    font-family: "Libre Baskerville", serif;
+    font-size: 30px;
+    margin-left: 30px;
+    color: beige;
+    font-style: italic;
+    text-shadow:
+    8px 8px 10px #3a0ca7,
+    0 0 20px #3a0ca7,
+    0 0 20px #3a0ca7,
+    0 0 20px #3a0ca7;
+}
+h1{
+    color: rgb(255, 255, 255);
+}
+.Resaltado{
+    color: rgb(37, 152, 206);
+
+}
+p{
+    color: rgb(177, 176, 176);
+    font-size: 17px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+h3{
+    color: aliceblue;
+}
+.mensaje{
+    font-family:serif;
+    color: rgb(208, 215, 218);
+    width: 40ch;
+    text-wrap: nowrap;
+    overflow: hidden;
+    animation: mensaje 2s steps(30) infinite alternate-reverse;
+}
+@keyframes mensaje {
+    from{
+        width: 0ch;
+    }
+}
+
+
+.iconos{
+    width: 40px;
+
+}
+.RedesIconos{
+    text-decoration: none;
+}
+
+
+/* ----------------------------------- */
+
+
+
+/* segundo apartado de la pagina educacion */
+
+.Educación{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-shadow:0 0 20px rgb(199, 189, 199);  
+}
+
+#Educacion{
+    
+    scroll-margin-top: 100px; /* altura aproximada del header */
+}
+ul{
+    margin-left: 50px;
+}
+
+/* --------------------------- /*
+
+
+
+
+/* tercer apartado de la pagina habilidades */
+
+
+.habilidades-contenedor{
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); /* 3 columnas */
+    justify-items: center;
+    
+}
+
+#habilidades-section{
+    min-height: 100vh;
+    padding-top: 80px;
+    scroll-margin-top: 80px;
+}
+.HabilidadesTitulo{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-shadow:0 0 20px rgb(199, 189, 199);
+}
+.HTMLdiv{
+    width: 300px;
+    height: 320px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 10px rgb(14, 88, 248));
+    transition: trasnform 0.3s ease, box-shadow 0.3s ease;
+    
+    
+}
+
+.HTML{
+    color: white;
+    display: flex;
+    justify-content: center;
+    
+}
+.HTMLIMAGEN{
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgb(14, 221, 248));
+}
+
+.CSSdiv{
+    width: 300px;
+    height: 320px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 10px rgb(14, 88, 248));
+    transition: trasnform 0.3s ease, box-shadow 0.3s ease;
+    
+    
+}
+.CSS{
+    color: white;
+    
+}
+.cssimg{
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgb(14, 221, 248));
+}
+
+.visualStudiodiv{
+    width: 300px;
+    height: 320px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 10px rgb(14, 88, 248));
+    transition: trasnform 0.3s ease, box-shadow 0.3s ease;
+}
+.visualStudio{
+    color: white;
+}
+.visualimg{
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgb(14, 221, 248));
+}
+
+.GitHubdiv{
+    width: 300px;
+    height: 320px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 10px rgb(14, 88, 248));
+    transition: trasnform 0.3s ease, box-shadow 0.3s ease;
+}
+.GitHub{
+    color: white;
+}
+.githubimg{
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgb(14, 221, 248));
+}
+
+.exceldiv{
+    width: 300px;
+    height: 320px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 10px rgb(14, 88, 248));
+    transition: trasnform 0.3s ease, box-shadow 0.3s ease;
+}
+.Excel{
+    color: white;
+}
+.excelimg{
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgb(14, 221, 248));
+}
+
+.workbenchdiv{
+    width: 300px;
+    height: 320px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 10px rgb(14, 88, 248));
+    transition: trasnform 0.3s ease, box-shadow 0.3s ease;
+}
+.workbench{
+    color: white;
+}
+
+.workbenchimg{
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgb(14, 221, 248));
+}
+.HTMLdiv:hover, .CSSdiv:hover, .visualStudiodiv:hover, .GitHubdiv:hover, .exceldiv:hover,.workbenchdiv:hover{
+  transform: translateY(-10px); /* se levanta 10px hacia arriba */
+  box-shadow:  0 10px 20px rgba(255, 255, 255, 0.4); /* sombra más fuerte */
+
+
+}
+
+
+
+
+/* ----------- Media Queries ----------- */
+
+/* Tablets (pantallas medianas, menos de 1024px) */
+@media (max-width: 1024px) {
+  .contenedor {
+    flex-direction: column;   /* Icono + texto en columna */
+    gap: 20px;
+    height: auto;             /* que no quede forzado a 100vh */
+    padding: 40px 20px;
+  }
+  .perfil {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+  }
+  nav {
+    gap: 20px;
+    font-size: 18px;
+  }
+  .habilidades-contenedor {
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); /* 2 columnas */
+    gap: 20px;
+  }
+}
+
+/* Celulares (pantallas pequeñas, menos de 768px) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  .Portafolio {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+  p {
+    font-size: 15px;
+    text-align: center;
+  }
+  .contenedor {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    height: auto;
+  }
+  .perfil {
+    width: 200px;
+    height: 200px;
+  }
+  .mensaje {
+    width: 90%;
+    text-align: center;
+    font-size: 14px;
+  }
+  .habilidades-contenedor {
+    grid-template-columns: 1fr; /* todas en una sola columna */
+    gap: 15px;
+  }
+  .HTMLdiv, .CSSdiv, .visualStudiodiv, .GitHubdiv, .exceldiv, .workbenchdiv {
+    width: 90%;
+    max-width: 320px;
+  }
+}
+
+
+
+
+
+
+
+
+
